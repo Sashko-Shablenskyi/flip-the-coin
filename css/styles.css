@@ -1,0 +1,80 @@
+:root {
+  --dark-color: #1a1f16;
+  --light-color: #f3f9e3;
+  --heads-color: #edd83d;
+  --tails-color: #65afff;
+  --coin-size: 150px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 45px;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: 15px;
+}
+
+.title {
+  font-size: 42px;
+  text-align: center;
+}
+
+.counter {
+  display: flex;
+  gap: 20px;
+  font-size: 24px;
+}
+
+.coin {
+  position: relative;
+  width: var(--coin-size);
+  height: var(--coin-size);
+  border-radius: 50%;
+  color: var(--dark-color);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  margin-top: 60px;
+}
+
+.coin::before,
+.coin::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  font-size: 20px;
+}
+
+.coin::before {
+  content: 'Heads';
+  background-color: var(--heads-color);
+  transform: rotateX(0deg);
+}
+
+.coin::after {
+  content: 'Tails';
+  background-color: var(--tails-color);
+  transform: rotateX(-180deg);
+}
+
+.reset-button {
+  background-color: transparent;
+  border: 2px solid var(--light-color);
+  border-radius: 10px;
+  color: var(--light-color);
+  padding: 10px 25px;
+  margin-top: 45px;
+  cursor: pointer;
+}
